@@ -3,7 +3,8 @@ public class Developer extends Employee {
     public Developer(String name, int skill, double salary) {
         super(name, skill, salary);
     }
-    @Overridepublic int work() {
+    @Override 
+    public int work() {
         return getSkill();
     }
 }
