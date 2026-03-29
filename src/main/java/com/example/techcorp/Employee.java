@@ -12,6 +12,8 @@ public abstract class Employee {
     public abstract int work();
     public abstract String getRoleName(); //cwiczenie2
 
+    public abstract String introduceYourself(); // zadanie 3 dla ambitnych
+
     public String getName() {
         return name;
     }

@@ -5,8 +5,8 @@ public class Main {
     public static void main(String[] args) {
         Company company = new Company("TechCorp", 50_000);
 
-        Employee anna = new Developer("Anna", 9, 8_000);
-        Employee piotr = new Tester("Piotr", 6, 6_500);
+        Employee anna = new Developer("Anna", 9, 8_000, "Java"); // zadanie 1 dla ambitnych
+        Employee piotr = new Tester("Piotr", 6, 6_500, 3); //zadanie 2 dla ambitnych
         Employee ewa = new Manager("Ewa", 7, 9_000);
         Employee kacper = new Intern("Kacper", 8, 3_000);
 
@@ -14,6 +14,13 @@ public class Main {
         company.hire(piotr);
         company.hire(ewa);
         company.hire(kacper);
+
+        // zadanie 3 - dla ambitnych
+        System.out.println(anna.introduceYourself());
+        System.out.println(piotr.introduceYourself());
+        System.out.println(ewa.introduceYourself());
+        System.out.println(kacper.introduceYourself());
+
 
         // Projekt 1 - same osoby techniczne - skonczyla sie w turze 4 czyli lepiej niz website w turze 10
         Project mobileApp = new Project("Mobile App", 40);

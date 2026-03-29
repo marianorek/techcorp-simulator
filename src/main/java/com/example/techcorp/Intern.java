@@ -14,4 +14,9 @@ public class Intern extends Employee {
     public String getRoleName() {
         return "Intern";
     } // cwiczenie2
+
+    @Override
+    public String introduceYourself() {
+        return "Hi, I'm " + getName() + ", an Intern. Still learning!";
+    } //zadanie 3 dla ambitnych
 }
