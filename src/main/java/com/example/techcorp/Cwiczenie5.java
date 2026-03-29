@@ -20,7 +20,6 @@ package com.example.techcorp;
  * Dodanie nowej roli oznacza tylko stworzenie nowego pliku – nie dotykamy
  * istniejącego kodu. Klasy Project i Company w ogóle nie muszą wiedzieć
  * jaki typ pracownika obsługują – wystarczy im typ ogólny Employee.
- * To właśnie jest siła dobrej abstrakcji.
  */
 
 public class Cwiczenie5 {
