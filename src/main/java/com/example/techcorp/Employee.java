@@ -1,27 +1,41 @@
-public class Employee {
-    private String name ;
-    private int skill ;
-    private double salary ;
+package com.example.techcorp;
+public abstract class Employee {
+    private String name;
+    private int skill;
+    private double salary;
 
-    public Employee (String name, int skill, double salary) {
-        this.name = name ;
-        this.skill = skill ;
-        this.salary = salary ; 
+    public Employee(String name, int skill, double salary) {
+        validateName(name);        validateSkill(skill);        validateSalary(salary);        this.name = name;
+        this.skill = skill;
+        this.salary = salary;
     }
-
-    public int work () {
-        return skill ; 
-    }
+    public abstract int work();
 
     public String getName() {
-        return name ;
+        return name;
+    }
+    public int getSkill() {
+        return skill;
+    }
+    public double getSalary() {
+        return salary;
+    }
+    private void validateName(String name) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("Employee name cannot be null or blank.");
+        }
     }
 
-    public int getSkill () {
-        return skill ; 
+    private void validateSkill(int skill) {
+        if (skill <= 0) {
+            throw new IllegalArgumentException("Employee skill must be greater than 0.");
+        }
     }
-    
-    public double getSalary() {
-        return salary ;
+
+    private void validateSalary(double salary) {
+        if (salary < 0) {
+            throw new IllegalArgumentException("Employee salary cannot be negative.");
+        }
     }
 }
+ 

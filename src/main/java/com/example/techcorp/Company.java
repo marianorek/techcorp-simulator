@@ -1,58 +1,65 @@
-import java.util.ArrayList;
-import java.util.List;
-
+package com.example.techcorp;
+import java.util.ArrayList;import java.util.List;
 public class Company {
-
     private String name;
     private double cash;
     private List<Employee> employees;
     private List<Project> projects;
 
     public Company(String name, double cash) {
-        this.name = name;
+        validateName(name);        validateCash(cash);        this.name = name;
         this.cash = cash;
         this.employees = new ArrayList<>();
         this.projects = new ArrayList<>();
     }
-
     public void hire(Employee employee) {
-        employees.add(employee);
-    }
-
+        if (employee == null) {
+            throw new IllegalArgumentException("Employee cannot be null.");
+        }        employees.add(employee);    }
     public void startProject(Project project) {
-        projects.add(project);
-    }
-
+        if (project == null) {
+            throw new IllegalArgumentException("Project cannot be null.");
+        }        projects.add(project);    }
     public void showStatus() {
         System.out.println("=== COMPANY STATUS ===");
         System.out.println("Name: " + name);
         System.out.println("Cash: " + cash);
         System.out.println("Employees: " + employees.size());
         System.out.println("Projects: " + projects.size());
-        
-        for (Project project : projects) {
-            System.out.println(
-                "Project: " + project.getName() +
-                ", progress: " + project.getProgress() + "/" +
-                project.getRequiredWork() +
-                ", finished: " + project.isFinished()
-            );
+        System.out.println();
+        if (employees.isEmpty()) {
+            System.out.println("No employees hired yet.");
+        } else {
+            System.out.println("Employees:");
+            for (Employee e : employees) {
+                System.out.println("- " + e.getClass().getSimpleName() + ": " + e.getName() + 
+                                   " | skill: " + e.getSkill() + " | salary: " + e.getSalary());
+            }
+        }
+        System.out.println();
+        if (projects.isEmpty()) {
+            System.out.println("No active projects.");
+        } else {
+            System.out.println("Projects:");
+            for (Project p : projects) {
+                System.out.println("- " + p.getName() + " | progress: " + p.getProgress() + "/" + p.getRequiredWork() +
+                                   " | completion: " + p.getCompletionPercentage() + "%" +
+                                   " | finished: " + p.isFinished());
+            }
+        }
+        System.out.println("======================");
+    }
+
+    private void validateName(String name) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("Company name cannot be null or blank.");
         }
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public double getCash() {
-        return cash;
-    }
-
-    public List<Employee> getEmployees() {
-        return employees;
-    }
-
-    public List<Project> getProjects() {
-        return projects;
+    private void validateCash(double cash) {
+        if (cash < 0) {
+            throw new IllegalArgumentException("Company cash cannot be negative.");
+        }
     }
 }
+ 
