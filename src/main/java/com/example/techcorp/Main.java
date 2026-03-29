@@ -7,7 +7,9 @@ public class Main {
         Employee piotr = new Tester("Piotr", 6, 6500);
         Employee ewa = new Manager("Ewa", 7, 9000);
 
-        company.hire(anna);        company.hire(piotr);        company.hire(ewa);
+        company.hire(anna);        
+        company.hire(piotr);        
+        company.hire(ewa);
         Project mobileApp = new Project("Mobile App", 40);
         mobileApp.addEmployee(anna);
         mobileApp.addEmployee(piotr);
