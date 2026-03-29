@@ -10,6 +10,7 @@ public abstract class Employee {
         this.salary = salary;
     }
     public abstract int work();
+    public abstract String getRoleName(); //cwiczenie2
 
     public String getName() {
         return name;

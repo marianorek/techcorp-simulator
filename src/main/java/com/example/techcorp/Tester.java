@@ -7,5 +7,9 @@ public class Tester extends Employee {
     public int work() {
         return getSkill() / 2;
     }
+    @Override
+    public String getRoleName() {
+        return "Tester";
+    } //cwiczenie2
 }
  

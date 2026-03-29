@@ -1,4 +1,4 @@
-package com.example.techcorp;
+package com.example.techcorp; // caly nowy kod - cwiczenie 4
 
 public class Main {
 
@@ -8,30 +8,38 @@ public class Main {
         Employee anna = new Developer("Anna", 9, 8_000);
         Employee piotr = new Tester("Piotr", 6, 6_500);
         Employee ewa = new Manager("Ewa", 7, 9_000);
+        Employee kacper = new Intern("Kacper", 8, 3_000);
 
         company.hire(anna);
         company.hire(piotr);
         company.hire(ewa);
+        company.hire(kacper);
 
+        // Projekt 1 - same osoby techniczne - skonczyla sie w turze 4 czyli lepiej niz website w turze 10
         Project mobileApp = new Project("Mobile App", 40);
         mobileApp.addEmployee(anna);
         mobileApp.addEmployee(piotr);
-        mobileApp.addEmployee(ewa);
+
+        // Projekt 2 - manager i stażysta
+        Project website = new Project("Website", 40);
+        website.addEmployee(ewa);
+        website.addEmployee(kacper);
 
         company.startProject(mobileApp);
-
-        System.out.println("INITIAL STATE");
-        company.showStatus();
+        company.startProject(website);
 
         int turn = 1;
-        while (!mobileApp.isFinished()) {
+        while (!mobileApp.isFinished() || !website.isFinished()) {
             System.out.println("\n--- TURN " + turn + " ---");
-            mobileApp.workOneTurn();
-            company.showStatus();
+            if (!mobileApp.isFinished()) mobileApp.workOneTurn();
+            if (!website.isFinished()) website.workOneTurn();
+
+            System.out.println("Mobile App:  " + mobileApp.getProgress() + "/40 (" + mobileApp.getCompletionPercentage() + "%)");
+            System.out.println("Website:     " + website.getProgress() + "/40 (" + website.getCompletionPercentage() + "%)");
             turn++;
         }
 
-        System.out.println("\nProject '" + mobileApp.getName() + "' finished.");
+        System.out.println("\nMobile App finished after: " + (turn - 1) + " turns");
+        System.out.println("Website finished after: " + (turn - 1) + " turns");
     }
 }
- 

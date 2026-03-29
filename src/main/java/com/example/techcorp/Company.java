@@ -32,8 +32,8 @@ public class Company {
         } else {
             System.out.println("Employees:");
             for (Employee e : employees) {
-                System.out.println("- " + e.getClass().getSimpleName() + ": " + e.getName() + 
-                                   " | skill: " + e.getSkill() + " | salary: " + e.getSalary());
+                System.out.println("- " + e.getRoleName() + ": " + e.getName() + 
+                                   " | skill: " + e.getSkill() + " | salary: " + e.getSalary());//cwiczenie3
             }
         }
         System.out.println();
